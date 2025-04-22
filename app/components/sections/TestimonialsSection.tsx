@@ -100,6 +100,9 @@ export default function TestimonialsSection() {
                           src={testimonial.image}
                           alt={`Cliente de Purecae - ${testimonial.author}`}
                           fill
+                          priority={testimonial.id === 1}
+                          quality={80}
+                          sizes="(max-width: 768px) 100vw, 50vw"
                           className="object-cover"
                         />
                       </div>

@@ -108,6 +108,9 @@ export default function CollectionSection() {
                     src={item.image}
                     alt={item.name}
                     fill
+                    priority={item.id <= 2} // Priorizar carga de las primeras imágenes
+                    quality={80}
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300" />

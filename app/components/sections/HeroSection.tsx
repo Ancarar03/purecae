@@ -15,7 +15,8 @@ export default function HeroSection() {
           fill
           priority
           className="object-cover object-center opacity-90"
-          quality={100}
+          sizes="100vw"
+          quality={90}
         />
         {/* Overlay oscuro para mejorar contraste */}
         <div className="absolute inset-0 bg-black/30"></div>
