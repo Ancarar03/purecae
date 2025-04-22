@@ -94,7 +94,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8 text-white">
+        <div className="hidden md:flex items-center space-x-8 text-white">
           <Link 
             href="/" 
             className="tracking-wide hover:text-gold-400 transition-colors font-medium drop-shadow-sm"

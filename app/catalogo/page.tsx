@@ -33,7 +33,7 @@ const generateProductsFromImages = () => {
     { slug: 'pendientes-lira', name: 'Pendientes Lira', image: '/images/Pendientes_Lira.jpg' },
     { slug: 'pendientes-lunar', name: 'Pendientes Lunar', image: '/images/Pendientes_Lunar.jpg' },
     { slug: 'pendientes-maradi', name: 'Pendientes Maradi', image: '/images/Pendientes_Maradi.jpg' },
-    { slug: 'pendientes-nemesis', name: 'Pendientes Némesis', image: '/images/Pendientes_Némesis.jpg' },
+    { slug: 'pendientes-nemesis', name: 'Pendientes Némesis', image: '/images/Pendinetes_Némesis.jpg' },
     { slug: 'pendientes-nereida', name: 'Pendientes Nereida', image: '/images/Pendientes_Nereida.jpg' },
     { slug: 'pendientes-nova', name: 'Pendientes Nova', image: '/images/Pendientes_Nova.jpg' },
     { slug: 'pendientes-orion', name: 'Pendientes Orión', image: '/images/Pendientes_Orión.jpg' },
