@@ -1,7 +1,6 @@
 "use client";
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 // Product data
@@ -50,56 +49,21 @@ const jewelryItems = [
   },
 ];
 
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};
-
 export default function CollectionSection() {
   return (
     <section id="collection" className="snap-section min-h-screen bg-beige-50 py-24 px-6 md:px-12 flex flex-col justify-center">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif mb-4">Nuestra Colección</h2>
           <p className="text-lg md:text-xl text-black/70 max-w-2xl mx-auto">
             Piezas artesanales únicas creadas con los mejores materiales y el cuidado de manos expertas.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {jewelryItems.map((item) => (
-            <motion.div 
+            <div 
               key={item.id}
-              variants={itemVariants}
               className="group relative overflow-hidden bg-white"
             >
               <Link href={`/productos/${item.slug}`} className="block">
@@ -108,9 +72,9 @@ export default function CollectionSection() {
                     src={item.image}
                     alt={item.name}
                     fill
-                    priority={item.id <= 2} // Priorizar carga de las primeras imágenes
-                    quality={80}
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                    priority={item.id <= 2}
+                    quality={75}
                     className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300" />
@@ -126,9 +90,9 @@ export default function CollectionSection() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
         
         <div className="text-center mt-12">
           <Link href="/catalogo" className="inline-block px-8 py-3 bg-black text-white font-medium tracking-wide transition-all hover:bg-gold-500 hover:text-black">

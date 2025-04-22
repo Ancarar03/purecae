@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 
 const testimonials = [
   {
@@ -39,18 +38,12 @@ export default function TestimonialsSection() {
   return (
     <section className="snap-section min-h-screen bg-beige-50 py-24 px-6 md:px-12 flex items-center">
       <div className="max-w-7xl mx-auto w-full">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif mb-4">Lo que dicen nuestros clientes</h2>
           <p className="text-lg md:text-xl text-black/70 max-w-2xl mx-auto">
             La satisfacción de quienes eligen nuestras piezas es nuestro mayor logro.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           {/* Navigation buttons (small screens) */}
@@ -101,7 +94,7 @@ export default function TestimonialsSection() {
                           alt={`Cliente de Purecae - ${testimonial.author}`}
                           fill
                           priority={testimonial.id === 1}
-                          quality={80}
+                          quality={75}
                           sizes="(max-width: 768px) 100vw, 50vw"
                           className="object-cover"
                         />
