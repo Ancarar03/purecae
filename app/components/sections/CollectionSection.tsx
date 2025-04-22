@@ -8,31 +8,45 @@ import Link from 'next/link';
 const jewelryItems = [
   {
     id: 1,
-    slug: 'pendientes-perlas',
-    name: 'Pendientes de Perlas',
-    image: '/images/4.jpg',
-    description: 'Pendientes de aro con perlas naturales',
+    slug: 'pendientes-agadez',
+    name: 'Pendientes Agadez',
+    image: '/images/Pendientes_Agadez.jpg',
+    description: 'Elegantes pendientes con diseño minimalista',
   },
   {
     id: 2,
-    slug: 'collar-minimalista',
-    name: 'Collar Minimalista',
-    image: '/images/3.jpg',
-    description: 'Collar dorado de diseño minimalista',
+    slug: 'pendientes-orion',
+    name: 'Pendientes Orión',
+    image: '/images/Pendientes_Orión.jpg',
+    description: 'Pendientes inspirados en la famosa constelación',
   },
   {
     id: 3,
-    slug: 'joya-signature',
-    name: 'Joya Signature',
-    image: '/images/1.jpg',
-    description: 'Pieza icónica de nuestra colección',
+    slug: 'colgante-kollam',
+    name: 'Colgante Kollam',
+    image: '/images/Colgante_Kollam.jpg',
+    description: 'Colgante inspirado en los diseños tradicionales de la India',
   },
   {
     id: 4,
-    slug: 'aretes-delicados',
-    name: 'Aretes Delicados',
-    image: '/images/2.jpg',
-    description: 'Aretes con elegante diseño y acabado perfecto',
+    slug: 'colgante-tunis-mini',
+    name: 'Colgante Tunis Mini',
+    image: '/images/Colgante_Tunis_Mini.jpg',
+    description: 'Colgante con estilo mediterráneo en versión mini',
+  },
+  {
+    id: 5,
+    slug: 'pendientes-safira',
+    name: 'Pendientes Safira',
+    image: '/images/Pendientes_Safira.jpg',
+    description: 'Pendientes con el brillo y elegancia de un zafiro',
+  },
+  {
+    id: 6,
+    slug: 'pendientes-soyo',
+    name: 'Pendientes Soyo',
+    image: '/images/Pendientes_Soyo.jpg',
+    description: 'Pendientes con un diseño inspirado en la naturaleza',
   },
 ];
 
@@ -80,7 +94,7 @@ export default function CollectionSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {jewelryItems.map((item) => (
             <motion.div 
@@ -112,6 +126,12 @@ export default function CollectionSection() {
             </motion.div>
           ))}
         </motion.div>
+        
+        <div className="text-center mt-12">
+          <Link href="/catalogo" className="inline-block px-8 py-3 bg-black text-white font-medium tracking-wide transition-all hover:bg-gold-500 hover:text-black">
+            VER TODA LA COLECCIÓN
+          </Link>
+        </div>
       </div>
     </section>
   );

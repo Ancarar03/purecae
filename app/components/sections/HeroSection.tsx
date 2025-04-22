@@ -10,7 +10,7 @@ export default function HeroSection() {
       {/* Background image with parallax effect */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/images/5.jpg"
+          src="/images/Pendientes_Aura.jpg"
           alt="Purecae luxury jewelry"
           fill
           priority

@@ -44,6 +44,12 @@ export default function Navbar() {
               Inicio
             </Link>
             <Link 
+              href="/catalogo"
+              className={`transition-colors ${scrolled ? 'text-black hover:text-gold-500' : 'text-white/80 hover:text-white'}`}
+            >
+              Catálogo
+            </Link>
+            <Link 
               href="#collection"
               className={`transition-colors ${scrolled ? 'text-black hover:text-gold-500' : 'text-white/80 hover:text-white'}`}
             >
@@ -116,6 +122,13 @@ export default function Navbar() {
             className="block py-2 text-black hover:text-gold-500 transition-colors"
           >
             Inicio
+          </Link>
+          <Link
+            href="/catalogo"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 text-black hover:text-gold-500 transition-colors"
+          >
+            Catálogo
           </Link>
           <Link
             href="#collection"
