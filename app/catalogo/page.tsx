@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Navbar from '../components/ui/Navbar';
 
 // Obtener todos los archivos de imágenes y convertirlos en productos
 const generateProductsFromImages = () => {
@@ -68,91 +69,141 @@ export const metadata = {
 export default function CatalogoPage() {
   const { pendientes, colgantes } = generateProductsFromImages();
 
+  // Mapa de precios según la lista proporcionada
+  const preciosMap: Record<string, string> = {
+    'Pendientes Abyss': '15,00 €',
+    'Pendientes Accra Mini': '18,00 €',
+    'Pendientes Agadez': '15,00 €',
+    'Pendientes Alba': '17,00 €',
+    'Pendientes Altair': '17,00 €',
+    'Pendientes Ambala': '23,00 €',
+    'Pendientes Aqua': '17,00 €',
+    'Pendientes Arena': '15,00 €',
+    'Pendientes Artemis': '15,00 €',
+    'Pendientes Astrea': '15,00 €',
+    'Pendientes Aura': '15,00 €',
+    'Pendientes Bruma': '17,00 €',
+    'Pendientes Calicut': '8,00 €',
+    'Pendientes Clarise': '17,00 €',
+    'Pendientes Coralina': '23,00 €',
+    'Pendientes Delhi': '15,00 €',
+    'Pendientes Gaya': '15,00 €',
+    'Pendientes Globo': '15,00 €',
+    'Pendientes Grace': '16,00 €',
+    'Pendientes Hubble': '15,00 €',
+    'Pendientes Ivory': '25,00 €',
+    'Pendientes Kalpa': '15,00 €',
+    'Pendientes Kepler': '15,00 €',
+    'Pendientes Kochi': '15,00 €',
+    'Pendientes Lira': '17,00 €',
+    'Pendientes Lunar': '15,00 €',
+    'Pendientes Maradi': '15,00 €',
+    'Pendientes Némesis': '15,00 €',
+    'Pendientes Nereida': '15,00 €',
+    'Pendientes Nova': '17,00 €',
+    'Pendientes Orión': '15,00 €',
+    'Pendientes Safira': '17,00 €',
+    'Pendientes Siena': '15,00 €',
+    'Pendientes Soyo': '17,00 €',
+    'Colgante Alhena': '12,00 €',
+    'Colgante Bretzel': '12,00 €',
+    'Colgante Croissant': '12,00 €',
+    'Colgante Cupcake': '12,00 €',
+    'Colgante Donut': '12,00 €',
+    'Colgante Donut Glaseado': '12,00 €',
+    'Colgante Helado': '12,00 €',
+    'Colgante Kollam': '15,00 €',
+    'Colgante Tunis Mini': '12,00 €'
+  };
+
   return (
-    <main className="min-h-screen bg-white pt-24 pb-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-serif mb-4">Catálogo Completo</h1>
-          <p className="text-lg md:text-xl text-black/70 max-w-2xl mx-auto">
-            Explora nuestra colección completa de joyería artesanal. 
-            Todas las piezas están cuidadosamente fabricadas a mano con materiales de alta calidad.
-          </p>
-          <p className="mt-4 text-2xl text-gold-500 font-medium">Todos los artículos a 15€</p>
+    <>
+      <Navbar />
+      <main className="min-h-screen bg-white pt-24 pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-serif mb-4">Catálogo Completo</h1>
+            <p className="text-lg md:text-xl text-black/70 max-w-2xl mx-auto">
+              Explora nuestra colección completa de joyería artesanal. 
+              Todas las piezas están cuidadosamente fabricadas a mano con materiales de alta calidad.
+            </p>
+            <p className="mt-4 text-2xl text-gold-500 font-medium">Todos los artículos a 15€</p>
+          </div>
+
+          {/* Filtro de categorías */}
+          <div className="flex justify-center mb-12 space-x-4">
+            <a href="#pendientes" className="px-6 py-2 border border-black hover:bg-black hover:text-white transition-colors">
+              Pendientes
+            </a>
+            <a href="#colgantes" className="px-6 py-2 border border-black hover:bg-black hover:text-white transition-colors">
+              Colgantes
+            </a>
+          </div>
+
+          {/* Sección de Pendientes */}
+          <section id="pendientes" className="mb-20">
+            <div className="border-b border-black/10 mb-8">
+              <h2 className="text-3xl font-serif mb-4">Pendientes</h2>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+              {pendientes.map((product) => (
+                <Link key={product.slug} href={`/productos/${product.slug}`} className="group">
+                  <div className="aspect-square relative overflow-hidden bg-beige-50 mb-3">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                    />
+                  </div>
+                  <h3 className="text-sm md:text-base font-medium truncate">{product.name}</h3>
+                  <p className="text-sm text-gold-500">{preciosMap[product.name] || '15€'}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Sección de Colgantes */}
+          <section id="colgantes" className="mb-20">
+            <div className="border-b border-black/10 mb-8">
+              <h2 className="text-3xl font-serif mb-4">Colgantes</h2>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+              {colgantes.map((product) => (
+                <Link key={product.slug} href={`/productos/${product.slug}`} className="group">
+                  <div className="aspect-square relative overflow-hidden bg-beige-50 mb-3">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                    />
+                  </div>
+                  <h3 className="text-sm md:text-base font-medium truncate">{product.name}</h3>
+                  <p className="text-sm text-gold-500">{preciosMap[product.name] || '12€'}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Banner promocional */}
+          <div className="bg-beige-100 p-8 md:p-12 text-center rounded-sm">
+            <h2 className="text-2xl md:text-3xl font-serif mb-4">Envíos a toda Europa</h2>
+            <p className="text-lg mb-6 max-w-2xl mx-auto">
+              Todas nuestras piezas se envían en elegante packaging, ideal para regalo.
+            </p>
+            <Link 
+              href="/#contact" 
+              className="inline-block px-8 py-3 bg-black text-white font-medium tracking-wide transition-all hover:bg-gold-500 hover:text-black"
+            >
+              CONTACTAR
+            </Link>
+          </div>
         </div>
-
-        {/* Filtro de categorías */}
-        <div className="flex justify-center mb-12 space-x-4">
-          <a href="#pendientes" className="px-6 py-2 border border-black hover:bg-black hover:text-white transition-colors">
-            Pendientes
-          </a>
-          <a href="#colgantes" className="px-6 py-2 border border-black hover:bg-black hover:text-white transition-colors">
-            Colgantes
-          </a>
-        </div>
-
-        {/* Sección de Pendientes */}
-        <section id="pendientes" className="mb-20">
-          <div className="border-b border-black/10 mb-8">
-            <h2 className="text-3xl font-serif mb-4">Pendientes</h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-            {pendientes.map((product) => (
-              <Link key={product.slug} href={`/productos/${product.slug}`} className="group">
-                <div className="aspect-square relative overflow-hidden bg-beige-50 mb-3">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                  />
-                </div>
-                <h3 className="text-sm md:text-base font-medium truncate">{product.name}</h3>
-                <p className="text-sm text-gold-500">15€</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Sección de Colgantes */}
-        <section id="colgantes" className="mb-20">
-          <div className="border-b border-black/10 mb-8">
-            <h2 className="text-3xl font-serif mb-4">Colgantes</h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-            {colgantes.map((product) => (
-              <Link key={product.slug} href={`/productos/${product.slug}`} className="group">
-                <div className="aspect-square relative overflow-hidden bg-beige-50 mb-3">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                  />
-                </div>
-                <h3 className="text-sm md:text-base font-medium truncate">{product.name}</h3>
-                <p className="text-sm text-gold-500">15€</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Banner promocional */}
-        <div className="bg-beige-100 p-8 md:p-12 text-center rounded-sm">
-          <h2 className="text-2xl md:text-3xl font-serif mb-4">Envíos a toda Europa</h2>
-          <p className="text-lg mb-6 max-w-2xl mx-auto">
-            Todas nuestras piezas se envían en elegante packaging, ideal para regalo.
-          </p>
-          <Link 
-            href="/#contact" 
-            className="inline-block px-8 py-3 bg-black text-white font-medium tracking-wide transition-all hover:bg-gold-500 hover:text-black"
-          >
-            CONTACTAR
-          </Link>
-        </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 } 

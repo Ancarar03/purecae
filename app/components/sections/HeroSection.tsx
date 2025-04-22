@@ -10,13 +10,15 @@ export default function HeroSection() {
       {/* Background image with parallax effect */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/images/Pendientes_Aura.jpg"
+          src="/images/portada.jpg"
           alt="Purecae luxury jewelry"
           fill
           priority
-          className="object-cover object-center opacity-80"
+          className="object-cover object-center opacity-90"
           quality={100}
         />
+        {/* Overlay oscuro para mejorar contraste */}
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
       
       {/* Content overlay */}
@@ -27,10 +29,10 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl"
         >
-          <h1 className="text-5xl md:text-7xl font-serif font-light text-white mb-6 tracking-wider">
+          <h1 className="text-5xl md:text-7xl font-serif font-light text-gold-300 mb-6 tracking-wider drop-shadow-md">
             ARTESANÍA ETERNA
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-xl mx-auto">
+          <p className="text-xl md:text-2xl text-white mb-10 max-w-xl mx-auto drop-shadow-md">
             Diseños exclusivos en acero inoxidable y piedras naturales
           </p>
           

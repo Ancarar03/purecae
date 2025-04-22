@@ -9,19 +9,19 @@ const testimonials = [
     id: 1,
     quote: "Mis pendientes de Purecae son perfectos para el día a día. Ligeros, elegantes y recibo muchos cumplidos.",
     author: "María C.",
-    image: "/images/4.jpg"
+    image: "/images/Pendientes_Safira.jpg"
   },
   {
     id: 2,
     quote: "La calidad es excepcional. Mi collar se mantiene impecable después de meses de uso continuo.",
     author: "Laura T.",
-    image: "/images/3.jpg"
+    image: "/images/Colgante_Kollam.jpg"
   },
   {
     id: 3,
     quote: "El diseño minimalista y elegante hace que combine con todo mi guardarropa. Una inversión que valió la pena.",
     author: "Carmen G.",
-    image: "/images/2.jpg"
+    image: "/images/Pendientes_Agadez.jpg"
   }
 ];
 

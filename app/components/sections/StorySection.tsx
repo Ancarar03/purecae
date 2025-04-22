@@ -43,7 +43,7 @@ export default function StorySection() {
           className="relative h-full min-h-[400px] md:min-h-[600px]"
         >
           <Image
-            src="/images/1.jpg"
+            src="/images/portada.jpg"
             alt="Purecae artisanal jewelry"
             fill
             className="object-cover object-center"

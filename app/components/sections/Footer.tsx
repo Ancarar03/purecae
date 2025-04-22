@@ -11,12 +11,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Logo and branding */}
           <div className="md:col-span-4 flex flex-col items-center md:items-start">
-            <div className="relative w-40 h-40 mb-6">
+            <div className="relative w-40 h-40 mb-6 bg-white/75 backdrop-blur-sm p-2 rounded-md shadow-md">
               <Image
-                src="/images/1.jpg"
+                src="/images/logo.png?v=5"
                 alt="Purecae Logo"
                 fill
-                className="object-contain rounded-full"
+                className="object-contain"
               />
             </div>
             <h3 className="text-2xl font-serif mb-4 text-gold-300">PURECAE</h3>
@@ -56,28 +56,28 @@ export default function Footer() {
             <h4 className="text-lg font-serif mb-6 text-gold-300">Navegación</h4>
             <ul className="space-y-3 text-white/70">
               <li>
-                <Link href="#" className="hover:text-gold-300 transition-colors">
+                <Link href="/" className="hover:text-gold-300 transition-colors">
                   Inicio
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gold-300 transition-colors">
+                <Link href="/#collection" className="hover:text-gold-300 transition-colors">
                   Colección
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gold-300 transition-colors">
+                <Link href="/catalogo" className="hover:text-gold-300 transition-colors">
+                  Catálogo
+                </Link>
+              </li>
+              <li>
+                <Link href="/#historia" className="hover:text-gold-300 transition-colors">
                   Nuestra Historia
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gold-300 transition-colors">
+                <Link href="/#materiales" className="hover:text-gold-300 transition-colors">
                   Materiales
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-gold-300 transition-colors">
-                  Testimonios
                 </Link>
               </li>
             </ul>
